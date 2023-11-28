@@ -1,0 +1,241 @@
+Algoritma HarmonisasiWarna
+
+Deklarasi
+Procedure batasAngka(input/output p: integer)
+Procedure batasAngka(input/output p1,p2: integer)
+Procedure batasAngka(input/output p1,p2,p3: integer)
+Procedure batasAngka(input/output p1,p2,p3,p4: integer)
+Procedure warnaTetradComplementary(input warna : integer)
+Procedure warnaTriadicComplementary(input warna : integer)
+Procedure warnaSplitComplementary(input warna : integer)
+Procedure warnaComplementary(input warna : integer)
+Procedure warnaAnalogous(input warna : integer)
+Procedure menuPerpaduanWarna(input warna : integer)
+Function sifatWarna(input warna : integer) -> string
+Function notasiWarna(input warna : integer) -> string
+Procedure menu
+
+Deskripsi
+menu
+
+
+Procedure batasAngka(input/output p: integer)
+Deklarasi Lokal
+
+Deskripsi
+if p > 12 then
+    p -= 12
+endif
+
+
+Procedure batasAngka(input/output p1,p2: integer)
+Deklarasi Lokal
+
+Deskripsi
+if p1 > 12 then
+    p1 -= 12
+endif
+if p2 > 12 then
+    p2 -= 12
+endif
+
+
+Procedure batasAngka(input/output p1,p2,p3: integer)
+Deklarasi Lokal
+
+Deskripsi
+if p1 > 12 then
+    p1 -= 12
+endif
+if p2 > 12 then
+    p2 -= 12
+endif
+if p3 > 12 then
+    p3 -= 12
+endif
+
+
+Procedure batasAngka(input/output p1,p2,p3,p4: integer)
+Deklarasi Lokal
+
+Deskripsi
+if p1 > 12 then
+    p1 -= 12
+endif
+if p2 > 12 then
+    p2 -= 12
+endif
+if p3 > 12 then
+    p3 -= 12
+endif
+if p4 > 12 then
+    p4 -= 12
+endif
+
+
+Procedure warnaTetradComplementary(input warna: integer)
+Deklarasi Lokal
+p1, p2, p3 : integer
+
+Deskripsi
+p1 = warna + 3
+p2 = warna + 6
+p3 = warna + 9
+batasAngka(p1, p2, p3)
+output(p1,p2,p3)
+
+
+Procedure warnaTriadicComplementary(input warna: integer)
+Deklarasi Lokal
+p1, p2 : integer
+
+Deskripsi
+p1 = warna + 4
+p2 = warna + 8
+batasAngka(p1, p2)
+output(p1,p2)
+
+
+Procedure warnaSplitComplementary(input warna: integer)
+Deklarasi Lokal
+p1, p2, p3, p4 : integer
+
+Deskripsi
+p1 = warna + 2
+p2 = warna + 7
+p3 = warna + 10
+p4 = warna + 5
+batasAngka(p1, p2, p3, p4)
+output(p1,p2,p3,p4)
+
+
+Procedure warnaComplementary(input warna: integer)
+Deklarasi Lokal
+p : integer
+
+Deskripsi
+p = warna + 6
+batasAngka(p)
+output(p)
+
+
+Procedure warnaAnalogous(input warna: integer)
+Deklarasi Lokal
+p1, p2, p3, p4 : integer
+
+Deskripsi
+p1 = warna + 1
+p2 = warna + 2
+p3 = warna + 10
+p4 = warna + 11
+batasAngka(p1, p2, p3, p4)
+output(p1,p2,p3,p4)
+
+
+Procedure menuPerpaduanWarna(input warna: integer)
+Deklarasi Lokal
+perpaduan : character
+
+Deskripsi
+input(perpaduan)
+case perpaduan
+    a : warnaAnalogous(warna)
+    b : warnaComplementary(warna) 
+    c : warnaSplitComplementary(warna)
+    d : warnaTriadicComplementary(warna)
+    e : warnaTetradComplementary(warna)
+    else : break
+endcase
+
+
+Function sifatWarna(input warna: integer) -> string
+Deklarasi Lokal
+sifat : string
+
+Deskripsi
+case warna
+    1 ... 6  : return sifat = "Hangat"
+    7 ... 12 : return sifat = "Sejuk"
+endcase
+
+
+Function notasiWarna(input warna: integer) -> string
+Deklarasi Lokal
+notasi : string
+
+Deskripsi
+if warna == 3 OR warna == 7 OR warna == 11 then
+    return notasi = "Primer"
+else
+    if warna == 1 OR warna == 9 OR warna == 5 then
+        return notasi = "Sekunder"
+    else
+        if warna == 2 OR warna == 4 OR warna == 6 OR warna == 8 OR warna == 10 OR warna == 12
+            return notasi = "Tersier"
+        else
+            return notasi = "Tidak Valid"
+        endif
+    endif
+endif
+
+
+Procedure menu
+Deklarasi Lokal
+warna : integer
+ulang : boolean
+
+Deskripsi
+ulang <- true
+
+repeat
+    input(warna)
+    output(notasiWarna(warna))
+    output(sifatWarna(warna))
+    menuPerpaduanWarna(warna)
+    input(pilih)
+    if pilih == 'n'
+        ulang <- false
+    endif
+until(!ulang)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
